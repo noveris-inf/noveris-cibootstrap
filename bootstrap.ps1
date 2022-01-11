@@ -18,4 +18,4 @@ Import-Module Noveris.ModuleMgmt
 
 Write-Information "Install/Import Noveris.CITools"
 Remove-Module Noveris.CITools -EA SilentlyContinue
-Import-Module -Name Noveris.CITools -RequiredVersion (Install-PSModuleWithSpec -Name Noveris.CITools -Major 0 -Minor 5)
+Import-Module -Name Noveris.CITools -RequiredVersion (Install-PSModuleWithSpec -Name Noveris.CITools -Major 0 -Minor 2)
