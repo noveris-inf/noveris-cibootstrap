@@ -27,7 +27,7 @@ Function Use-PowerShellGallery
             Write-Verbose "Attempting nuget provider update"
             try {
                 # Set TLS support to 1.1 and 1.2 explicitly
-                [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12 -bor [System.Net.SecurityProtocolType]::Tls11
+                [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12 -bor [System.Net.SecurityProtocolType]::Tls11 -bor [System.Net.SecurityProtocolType]::Tls13
                 Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force -Confirm:$false -Scope $Scope
             } catch {
                 Write-Warning "Couldn't install nuget package provider"
