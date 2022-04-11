@@ -48,14 +48,15 @@ Function Use-PowerShellGallery
 
 ################
 # Modules
-Write-Information "Install/Update/Import Noveris.ModuleMgmt"
+Write-Information "Install/Update/Import ModuleMgmt"
 # Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 Use-PowerShellGallery
-Remove-Module Noveris.ModuleMgmt -EA SilentlyContinue
-Install-Module Noveris.ModuleMgmt -Scope CurrentUser -EA SilentlyContinue
-Update-Module Noveris.ModuleMgmt -Scope CurrentUser -EA SilentlyContinue
-Import-Module Noveris.ModuleMgmt
+Remove-Module ModuleMgmt -EA SilentlyContinue
+Install-Module ModuleMgmt -Scope CurrentUser -EA SilentlyContinue
+Update-Module ModuleMgmt -Scope CurrentUser -EA SilentlyContinue
+Import-Module ModuleMgmt
 
-Write-Information "Install/Import Noveris.CITools"
-Remove-Module Noveris.CITools -EA SilentlyContinue
-Import-Module -Name Noveris.CITools -RequiredVersion (Install-PSModuleWithSpec -Name Noveris.CITools -Major 0 -Minor 3)
+Write-Information "Install/Import CITools"
+Remove-Module CITools -EA SilentlyContinue
+Import-Module -Name CITools -RequiredVersion (Install-PSModuleWithSpec -Name CITools -Major 0 -Minor 3)
+Import-Module -Name GitHubApiTools -RequiredVersion (Install-PSModuleWithSpec -Name CITools -Major 1 -Minor 0)
