@@ -58,5 +58,5 @@ Import-Module ModuleMgmt
 
 Write-Information "Install/Import CITools"
 Remove-Module CITools -EA SilentlyContinue
-Import-Module -Name CITools -RequiredVersion (Install-PSModuleWithSpec -Name CITools -Major 1)
+Import-Module -Name CITools -RequiredVersion (Install-PSModuleWithSpec -Name CITools -Major 2)
 Import-Module -Name GitHubApiTools -RequiredVersion (Install-PSModuleWithSpec -Name GitHubApiTools -Major 1)
