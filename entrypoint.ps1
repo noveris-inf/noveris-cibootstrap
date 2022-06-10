@@ -9,7 +9,7 @@ param(
 )
 
 $ErrorActionPreference = "Stop"
-. ./ps-cibootstrap/bootstrap.ps1
+. ./bootstrap.ps1
 
 ########
 # Capture version information
@@ -23,7 +23,7 @@ $version
 Invoke-CIProfile -Name $Profile -Steps @{
 
     lint = @{
-        Script = {
+        Steps = {
             Use-PowershellGallery
             Install-Module PSScriptAnalyzer -Scope CurrentUser
             Import-Module PSScriptAnalyzer
@@ -37,17 +37,20 @@ Invoke-CIProfile -Name $Profile -Steps @{
     }
 
     build = @{
+        Steps = {
+            Write-Information "Build placeholder"
+        }
     }
 
     pr = @{
-        Dependencies = $("build")
+        Steps = "build"
     }
 
     latest = @{
-        Dependencies = $("build")
+        Steps = "build"
     }
 
     release = @{
-        Dependencies = $("build")
+        Steps = "build"
     }
 }
